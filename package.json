@@ -5,10 +5,18 @@
   "main": "index.js",
   "author": "Ian Mobley <ianmobley@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "node src/index.js"
+  },
   "dependencies": {
     "bookshelf": "^0.12.0",
+    "dotenv": "^4.0.0",
     "express": "^4.16.2",
     "knex": "^0.14.2",
-    "morgan": "^1.9.0"
+    "morgan": "^1.9.0",
+    "pg": "^7.4.0"
+  },
+  "devDependencies": {
+    "sqlite3": "^3.1.13"
   }
 }
