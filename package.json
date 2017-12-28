@@ -6,7 +6,10 @@
   "author": "Ian Mobley <ianmobley@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "migrate": "knex migrate:latest",
+    "rollback": "knex migrate:rollback",
+    "seed": "knex seed:run"
   },
   "dependencies": {
     "bookshelf": "^0.12.0",
