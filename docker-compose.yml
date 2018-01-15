@@ -2,14 +2,13 @@ version: '3'
 
 services:
   db:
-    image: mysql
+    image: postgres:alpine
+    restart: unless-stopped
     environment:
-      MYSQL_ROOT_PASSWORD: dickseverywhere
-      MYSQL_USER: foo
-      MYSQL_PASSWORD: bar
-      MYSQL_DATABASE: baz
+      POSTGRES_USER: foo
+      POSTGRES_PASSWORD: bar
     volumes:
-      - db_data:/var/lib/mysql
+      - db_data:/var/lib/postgresql/data
     deploy:
       replicas: 1
       placement:
@@ -19,9 +18,10 @@ services:
   app:
     image: imobley/migration-test
     build: .
+    restart: unless-stopped
     environment:
       NODE_ENV: production
-      DATABASE_URL: mysql://foo:bar@db/baz
+      DATABASE_URL: pg://foo:bar@db/foo
     ports:
       - 8080:8080
     depends_on:

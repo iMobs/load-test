@@ -1,0 +1,25 @@
+config:
+  target: 'http://localhost:8080'
+  phases:
+    - duration: 60
+      arrivalRate: 50
+    - duration: 60
+      arrivalRate: 50
+      rampTo: 250
+    - duration: 60
+      arrivalRate: 250
+      rampTo: 1000
+    - duration: 60
+      arrivalRate: 1000
+      rampTo: 5000
+  processor: './artillery-functions.js'
+
+scenarios:
+  - name: "Post user"
+    flow:
+    - function: 'generateUser'
+    - post:
+        url: "/users"
+        json:
+          name: "{{ name }}"
+          email: "{{ email }}"

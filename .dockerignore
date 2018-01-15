@@ -9,3 +9,6 @@ README.md
 LICENSE
 .vscode
 *.sqlite3
+.babelrc
+.eslintrc.js
+.env
